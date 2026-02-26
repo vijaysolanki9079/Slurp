@@ -6,7 +6,10 @@ import { StoreContext } from '../../context/StoreContext';
 
 export const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { getTotalCartAmount, token, setToken, setCategory } = useContext(StoreContext);
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
 
   const location = useLocation();
@@ -30,14 +33,21 @@ export const Navbar = ({ setShowLogin }) => {
 
   return (
     <div className='navbar'>
-      <Link to='/' className="logo-container">
-        <img src={assets.logo} alt="" className="logo" />
-      </Link>
+      <div className="navbar-left-mobile">
+        <Link to='/' className="logo-container">
+          <img src={assets.logo} alt="" className="logo" />
+        </Link>
+        <div className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
 
-      <ul className='navbar-menu'>
-        <Link to='/' onClick={() => setMenu("home")} className={menu !== "contact-us" && location.pathname === "/" ? "active" : ""}>Home</Link>
-        <Link to='/menu' onClick={() => setMenu("menu")} className={menu !== "contact-us" && location.pathname === "/menu" ? "active" : ""}>Menu</Link>
-        <a href='#footer' onClick={() => setMenu("contact-us")} className={menu === "contact-us" ? "active" : ""}>Contact us</a>
+      <ul className={`navbar-menu ${isMobileMenuOpen ? 'mobile-active' : ''}`}>
+        <Link to='/' onClick={() => { setMenu("home"); setIsMobileMenuOpen(false); }} className={menu !== "contact-us" && location.pathname === "/" ? "active" : ""}>Home</Link>
+        <Link to='/menu' onClick={() => { setMenu("menu"); setIsMobileMenuOpen(false); }} className={menu !== "contact-us" && location.pathname === "/menu" ? "active" : ""}>Menu</Link>
+        <a href='#footer' onClick={() => { setMenu("contact-us"); setIsMobileMenuOpen(false); }} className={menu === "contact-us" ? "active" : ""}>Contact us</a>
       </ul>
 
       <div className='navbar-right'>

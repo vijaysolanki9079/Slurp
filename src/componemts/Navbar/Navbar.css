@@ -12,6 +12,28 @@
   transition: all 0.3s ease;
 }
 
+.navbar-left-mobile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
 .logo-container {
   display: flex;
   align-items: center;
@@ -26,6 +48,8 @@
 .navbar .logo {
   width: 160px;
   filter: brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(1352%) hue-rotate(338deg) brightness(103%) contrast(101%);
+  transform: translateY(4px);
+  /* Visually center the logo */
 }
 
 .navbar-menu {
@@ -325,8 +349,65 @@
 
 
 /* ---------- TABLET SCREENS (Up to 768px) ---------- */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
 
-/* ---------- SMALL MOBILE SCREENS (Up to 600px) ---------- */
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+    margin: 0;
+  }
+
+  .navbar-menu.mobile-active {
+    right: 0;
+  }
+
+  .landing-app .navbar {
+    position: fixed !important;
+    background: rgba(10, 6, 4, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+  }
+
+  .landing-app .navbar-menu {
+    background-color: rgba(10, 6, 4, 0.98);
+    border-left: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .navbar-right {
+    gap: 15px;
+  }
+
+  .navbar .logo {
+    width: 120px;
+  }
+}
 
 /* ---------- VERY SMALL MOBILE (Up to 480px) ---------- */
 @media (max-width: 480px) {
@@ -335,15 +416,16 @@
   }
 
   .navbar .logo {
-    width: 85px;
+    width: 100px;
   }
 
   .navbar-right {
     gap: 10px;
   }
 
-  .navbar-right button {
+  .navbar-right button,
+  .navbar-cart-btn {
     padding: 5px 12px;
-    font-size: 12px;
+    font-size: 13px;
   }
 }

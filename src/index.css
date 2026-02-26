@@ -33,8 +33,16 @@ a {
 }
 
 .app {
+  width: 100%;
+}
+
+.main-content {
   width: 90%;
   margin: auto;
+}
+
+.landing-app .main-content {
+  width: 100%;
 }
 
 .landing-app.app {
@@ -90,6 +98,10 @@ a {
 
 .landing-app .navbar-menu .active {
   border-bottom: 2px solid #fff;
+}
+
+.app:not(.landing-app) .navbar-menu .active {
+  border-bottom: 2px solid var(--primary-color) !important;
 }
 
 .landing-app .navbar-search {

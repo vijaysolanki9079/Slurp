@@ -22,28 +22,20 @@ const App = () => {
 
   return (
     <>
-      {/* ── Only renders on '/' route ── */}
-      {showAtmosphere && (
-        <>
-          <div className="atm-blob atm-blob--1" aria-hidden="true" />
-          <div className="atm-blob atm-blob--2" aria-hidden="true" />
-          <div className="atm-blob atm-blob--3" aria-hidden="true" />
-          <div className="atm-vignette" aria-hidden="true" />
-          <div className="atm-scanlines" aria-hidden="true" />
-        </>
-      )}
 
       {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : null}
 
       <div className={`app ${isOverlayPage ? 'landing-app' : ''}`}>
         <Navbar setShowLogin={setShowLogin} />
-        <Routes>
-          <Route path='/' element={<LandingPage />} />
-          <Route path='/menu' element={<Home />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/order' element={<PlaceOrder />} />
-          <Route path='/myorders' element={<MyOrders />} />
-        </Routes>
+        <div className="main-content">
+          <Routes>
+            <Route path='/' element={<LandingPage />} />
+            <Route path='/menu' element={<Home />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/order' element={<PlaceOrder />} />
+            <Route path='/myorders' element={<MyOrders />} />
+          </Routes>
+        </div>
       </div>
 
       <Footer />

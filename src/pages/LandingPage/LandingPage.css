@@ -473,3 +473,26 @@
         font-size: 2.2rem;
     }
 }
+
+
+/* //// */
+@media (max-width: 768px) {
+    .landing-page {
+        padding: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-page {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 320px) {
+    .landing-page {
+        padding: 5px;
+        font-size: 0.8em;
+    }
+}

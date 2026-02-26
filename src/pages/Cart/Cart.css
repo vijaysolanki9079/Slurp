@@ -2,7 +2,7 @@
    SLURP — Cart Page  |  Premium Light Theme
 ════════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap'); */
 
 /* ════════════════════════════════════════════════
    WRAPPER
@@ -23,10 +23,10 @@
   padding: 0 16px 14px;
   border-bottom: 1.5px solid #f0ebe3;
   font-size: 0.68rem;
-  font-weight: 600;
+  font-weight: 900;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #b0a89a;
+  color: #424242;
 }
 
 /* ════════════════════════════════════════════════
@@ -241,7 +241,7 @@
   color: white;
   background: linear-gradient(135deg, #ff4d4d, #f02d2d);
   width: max(15vw, 200px);
-  padding: 14px 0;
+  padding: 20px 10px;
   border-radius: 100px;
   cursor: pointer;
   font-family: 'DM Sans', sans-serif;

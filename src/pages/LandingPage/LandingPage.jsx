@@ -26,7 +26,7 @@ const LandingPage = () => {
     });
 
     const handleGoToMenu = () => {
-        navigate('/menu');
+        navigate('/menu#explore-menu');
     };
 
     return (
@@ -49,6 +49,12 @@ const LandingPage = () => {
             </div>
 
             <div className="banners-container">
+
+                {/* ── atmosphere layers ── */}
+                <div className="cta-blob cta-blob--1" aria-hidden="true" />
+                <div className="cta-blob cta-blob--2" aria-hidden="true" />
+                <div className="cta-vignette" aria-hidden="true" />
+
                 <div className="banner-title-section">
                     <h2>Our Signature Specialties</h2>
                     <p>Hand-picked dishes that define our kitchen.</p>
