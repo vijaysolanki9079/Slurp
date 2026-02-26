@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --primary-color: #ff4d4d;
+  --primary-hover: #ff3333;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Outfit;
+  scroll-behavior: smooth;
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  min-height: 100vh;
+  /* background-color: beige; */
+
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app {
+  width: 90%;
+  margin: auto;
+}
+
+.landing-app.app {
+  width: 100%;
+  max-width: none;
+}
+
+.app+.footer {
+  margin-top: 50px;
+}
+
+.landing-app.app+.footer {
+  margin-top: 0;
+}
+
+.landing-app .navbar {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 5%;
+  z-index: 100;
+  background: transparent !important;
+  border-bottom: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.landing-app .navbar .logo-container {
+  background-color: transparent;
+}
+
+.landing-app .navbar .logo-container:hover {
+  background-color: transparent;
+}
+
+/* Ensure navbar items are visible on video */
+.landing-app .navbar-menu {
+  color: #fff;
+}
+
+.landing-app .navbar button,
+.landing-app .navbar-cart-btn {
+  color: #fff;
+  border-color: #fff;
+}
+
+.landing-app .navbar button:hover,
+.landing-app .navbar-cart-btn:hover {
+  background-color: #fff;
+  color: var(--primary-color);
+}
+
+.landing-app .navbar-menu .active {
+  border-bottom: 2px solid #fff;
+}
+
+.landing-app .navbar-search {
+  border-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+}
+
+.landing-app .navbar-search:hover {
+  border-color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.landing-app .navbar-search input {
+  color: #fff;
+}
+
+.landing-app .navbar-search input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.landing-app .navbar-search .search {
+  filter: brightness(0) invert(1);
+}
+
+.landing-app .search-suggestions {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(15px);
+  border-color: rgba(255, 77, 77, 0.4);
+}
+
+.landing-app .search-suggestions li {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.landing-app .search-suggestions li:hover {
+  background-color: rgba(255, 77, 77, 0.2);
+  color: #fff;
+}
+
+/* Key Frames */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

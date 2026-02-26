@@ -1,0 +1,167 @@
+.footer {
+  background: #0a0604;
+  color: #ffffff;
+  padding: 40px 7% 10px;
+  font-family: 'Outfit', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Atmospheric vignette layer */
+.footer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 0%, rgba(90, 28, 5, 0.15) 0%, transparent 70%),
+    radial-gradient(circle at 50% 100%, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
+}
+
+/* Ensure content is above vignette */
+.footer-content,
+.footer hr,
+.footer-copyright {
+  position: relative;
+  z-index: 2;
+}
+
+/* Subtle line at the top */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 77, 77, 0.4), transparent);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  /* margin-bottom: 30px; */
+}
+
+/* ------------------- LEFT SECTION ------------------- */
+.footer-content-left {
+  flex: 1.2;
+  min-width: 250px;
+}
+
+.logo-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.logo-container:hover {
+  transform: scale(1.1);
+}
+
+.footer-content-left .logo-container img {
+  width: 150px;
+  margin-bottom: 0px;
+  filter: brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(1352%) hue-rotate(338deg) brightness(103%) contrast(101%);
+}
+
+.footer-content-left p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 40px;
+  max-width: 450px;
+  font-weight: 300;
+}
+
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-social-icons img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1) opacity(0.6);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.footer-social-icons img:hover {
+  transform: translateY(-5px);
+  filter: brightness(0) invert(1) opacity(1) drop-shadow(0 5px 15px rgba(255, 77, 77, 0.4));
+}
+
+/* ------------------- CENTER SECTION ------------------- */
+.footer-content-center {
+  flex: 0.8;
+  min-width: 180px;
+}
+
+.footer-content-center h2,
+.footer-content-right h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #ffffff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.footer-content-center li,
+.footer-content-right li {
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+}
+
+.footer-content-center li:hover,
+.footer-content-right li:hover {
+  color: var(--primary-color);
+  transform: translateX(8px);
+}
+
+/* ------------------- BOTTOM LINE ------------------- */
+.footer hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  margin-bottom: 25px;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.5px;
+}
+
+/* ------------------- RESPONSIVE DESIGN ------------------- */
+@media (max-width: 900px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-content-left,
+  .footer-content-center,
+  .footer-content-right {
+    flex: none;
+  }
+
+  .footer-social-icons {
+    justify-content: center;
+  }
+}

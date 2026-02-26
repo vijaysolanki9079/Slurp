@@ -1,0 +1,242 @@
+/* ----------- MAIN PLACE ORDER LAYOUT ----------- */
+.place-order {
+  width: 100%;
+  min-height: 100vh;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 35px;
+  background-color: #fafafa;
+  animation: fadeIn 0.4s ease-in-out;
+  /* flex-wrap: wrap;/ */
+  box-sizing: border-box;
+}
+
+/* ----------- LEFT: BILLING & SHIPPING FORM ----------- */
+.place-order-left {
+  flex: 0 0 60%;
+  background-color: white;
+  border-radius: 16px;
+  padding: 25px 30px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  /* border-top: 6px solid var(--primary-color); */
+  box-sizing: border-box;
+  min-width: 320px;
+}
+
+.place-order-left h2 {
+  margin-bottom: 25px;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  color: #333;
+}
+
+.place-order-form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1.8px solid #ddd;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.25s ease;
+  background-color: #fafafa;
+}
+
+.place-order-form input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 6px rgba(255, 77, 77, 0.3);
+  background-color: #fff;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.form-row input {
+  flex: 1;
+  min-width: 100px;
+}
+
+.place-order-form button {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.place-order-form button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* ----------- RIGHT: ORDER SUMMARY ----------- */
+.place-order-right {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+.order-summary {
+  background-color: white;
+  border-radius: 16px;
+  padding: 35px 30px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border-left: 6px solid var(--primary-color);
+}
+
+.order-summary h2 {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.summary-item,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  color: #555;
+}
+
+.summary-total {
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.order-summary hr {
+  border: none;
+  border-bottom: 2px solid #eee;
+  margin: 6px 0;
+}
+
+.checkout-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px 0;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* ----------- ANIMATION ----------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* error msgs */
+.error-message {
+  color: #ff4d4f;
+  background: #ffe5e5;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content {
+  background: white;
+  padding: 25px 35px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.popup-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.confirm-btn {
+  background: #4caf50;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #f44336;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* ----------- RESPONSIVE ----------- */
+@media (max-width: 1024px) {
+  .place-order {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .place-order-left,
+  .place-order-right {
+    width: 100%;
+  }
+
+  .place-order-right {
+    min-width: unset;
+  }
+}
+
+/* Prevent horizontal scroll */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}

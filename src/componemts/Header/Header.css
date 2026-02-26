@@ -1,0 +1,23 @@
+.header {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.header-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

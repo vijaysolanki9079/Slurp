@@ -1,0 +1,155 @@
+.explore-menu {
+  display: flex;
+  margin-top: 40px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.explore-menu h1 {
+  display: flex;
+  justify-content: center;
+  color: #262626;
+  font-size: 2.8rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-top: 40px;
+}
+
+.explore-menu-text {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #676767;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.explore-menu-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  text-align: center;
+  margin: 40px 0px 40px 0px;
+  overflow-x: auto;
+  padding: 20px 10px;
+  scrollbar-width: none;
+}
+
+.explore-menu-list::-webkit-scrollbar {
+  display: none;
+}
+
+.explore-menu-list-item {
+  flex: 0 0 auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.explore-menu-list-item:hover {
+  transform: translateY(-8px);
+}
+
+.explore-menu-list-item img {
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 4px solid transparent;
+}
+
+.explore-menu-list-item:hover img {
+  box-shadow: 0 8px 25px rgba(255, 77, 77, 0.2);
+}
+
+.explore-menu-list-item p {
+  margin-top: 15px;
+  color: #49557e;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.explore-menu-list-item:hover p {
+  color: var(--primary-color);
+}
+
+.explore-menu hr {
+  margin: 10px 0px;
+  height: 2px;
+  background-color: #e2e2e2;
+  border: none;
+}
+
+
+/* category wala code handle */
+
+.explore-menu-list-item .active {
+  border: 4px solid var(--primary-color) !important;
+  padding: 4px;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 77, 77, 0.3);
+}
+
+
+/* ---------- Large Mobiles (up to 600px) ---------- */
+@media (max-width: 600px) {
+  .explore-menu {
+    gap: 15px;
+  }
+
+  .explore-menu h1 {
+    font-size: 1.6rem;
+  }
+
+  .explore-menu-text {
+    margin: 0 20px;
+    font-size: 0.85rem;
+  }
+
+  .explore-menu-list {
+    gap: 18px;
+    justify-content: center;
+  }
+
+  .explore-menu-list-item img {
+    width: 14vw;
+    min-width: 65px;
+  }
+
+  .explore-menu-list-item p {
+    font-size: max(2.5vw, 13px);
+  }
+}
+
+/* ---------- Small Mobiles (up to 480px) ---------- */
+@media (max-width: 480px) {
+  .explore-menu {
+    gap: 12px;
+  }
+
+  .explore-menu h1 {
+    font-size: 1.4rem;
+  }
+
+  .explore-menu-text {
+    margin: 0 15px;
+    font-size: 0.8rem;
+  }
+
+  .explore-menu-list {
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .explore-menu-list-item img {
+    width: 16vw;
+    min-width: 60px;
+  }
+
+  .explore-menu-list-item p {
+    font-size: max(3vw, 12px);
+  }
+}

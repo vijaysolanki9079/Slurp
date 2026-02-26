@@ -1,0 +1,475 @@
+.landing-page {
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    background-color: #fcfcfc;
+}
+
+/* --- SEQUENCE HERO SECTION --- */
+.sequence-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+    background: #000;
+}
+
+.sequence-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.15) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.sequence-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.sequence-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 900px;
+    animation: heroFadeIn 1.2s ease-out;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: #fff;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+.hero-title .highlight {
+    background: linear-gradient(135deg, #ff4d4d, #ff8c8c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+.hero-btn {
+    padding: 1.2rem 3.5rem;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #ff4d4d, #f02d2d);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 30px rgba(255, 77, 77, 0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+
+}
+
+.hero-btn:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(255, 77, 77, 0.6);
+}
+
+.btn-arrow {
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+.hero-btn:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+/* --- SIGNATURE BANNERS SECTION --- */
+/* --- SIGNATURE BANNERS SECTION --- */
+.banners-container {
+    padding: 80px 5% 120px;
+    position: relative;
+    overflow: hidden;
+    background: #0a0604;
+    /* dark base */
+}
+
+/* Layer 1: Drifting dark orbs */
+.banners-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 55% 45% at 15% 30%, rgba(90, 28, 5, 0.7) 0%, transparent 65%),
+        radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0, 0, 0, 0.75) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 45% at 85% 75%, rgba(110, 38, 8, 0.55) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 35% at 75% 10%, rgba(12, 5, 1, 0.9) 0%, transparent 55%);
+    animation: ctaOrbDrift 18s ease-in-out infinite alternate;
+}
+
+/* Layer 2: Film grain */
+.banners-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+    opacity: .045;
+    animation: ctaGrain .12s steps(1) infinite;
+    mix-blend-mode: overlay;
+}
+
+/* Layer 3: Floating smoke blobs */
+.cta-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    pointer-events: none;
+    z-index: 0;
+    animation: ctaBlobFloat var(--dur, 20s) ease-in-out var(--delay, 0s) infinite;
+}
+
+.cta-blob--1 {
+    width: 55%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(70, 22, 4, .8) 0%, transparent 70%);
+    top: -20%;
+    left: -10%;
+    --dur: 20s;
+    --delay: 0s;
+}
+
+.cta-blob--2 {
+    width: 45%;
+    height: 70%;
+    background: radial-gradient(circle, rgba(25, 8, 1, .9) 0%, transparent 70%);
+    bottom: -15%;
+    right: -5%;
+    --dur: 25s;
+    --delay: -8s;
+}
+
+/* Layer 4: Vignette */
+.cta-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 30%, rgba(0, 0, 0, .6) 100%);
+    animation: ctaVigPulse 6s ease-in-out infinite;
+}
+
+/* Everything inside sits above layers */
+.banners-container>*:not(.cta-blob):not(.cta-vignette) {
+    position: relative;
+    z-index: 10;
+}
+
+/* Fix text colors on dark bg */
+.banner-title-section h2 {
+    color: #fff;
+}
+
+.banner-title-section p {
+    color: rgba(255, 255, 255, .5);
+}
+
+.banner-title-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.banner-title-section h2 {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.banner-title-section p {
+    font-size: 1.2rem;
+    color: #777;
+}
+
+.banners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 100px auto;
+    padding: 0 5%;
+}
+
+.banner-item {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.banner-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    display: block;
+}
+
+.banner-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: #fff;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+
+.banner-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.glass-hover:hover img {
+    transform: scale(1.1);
+}
+
+.glass-hover:hover .banner-content {
+    background: linear-gradient(to top, rgba(255, 77, 77, 0.6), transparent);
+    transform: translateY(0);
+}
+
+/* --- BOTTOM CTA SECTION --- */
+.bottom-cta-section {
+    padding: 0 5% 100px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+.cta-container {
+    width: 140%;
+    max-width: 1200px;
+    padding: 80px 40px;
+    text-align: center;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.cta-container h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    color: #1a1a1a;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.cta-container p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+
+/* --- CULTURE SECTION --- */
+.culture-section {
+    padding: 120px 5%;
+    background-color: #fff;
+    text-align: center;
+}
+
+.culture-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.culture-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #444;
+    font-weight: 700;
+    margin: 40px 0 30px;
+    letter-spacing: -1px;
+    opacity: 0.8;
+}
+
+.culture-content .hero-title {
+    color: #1a1a1a;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 10px;
+}
+
+.culture-content .hero-subtitle {
+    color: #555;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.culture-image-container {
+    width: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+.culture-image {
+    width: 100%;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.culture-image:hover {
+    transform: scale(1.02);
+}
+
+/* --- HOME HERO CONTENT (Relocated) --- */
+.home-hero-content {
+    text-align: center;
+    padding: 80px 5% 40px;
+}
+
+.home-hero-content .hero-title {
+    color: #1a1a1a;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 15px;
+}
+
+.home-hero-content .hero-subtitle {
+    color: #555;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- BOOK SEPARATOR --- */
+.book-separator {
+    width: 100%;
+    background-color: #fff;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-image {
+    width: 100%;
+    /* max-width: 1400px; */
+    height: auto;
+    display: block;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+/* --- STORY SECTION --- */
+.story-section {
+    padding: 100px 10%;
+    background-color: #fcfcfc;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.story-content {
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+}
+
+.story-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #1a1a1a;
+    font-weight: 800;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.story-text {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: #444;
+    line-height: 1.8;
+    font-family: 'Playfair Display', serif;
+    /* Or any elegant serif */
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.story-divider {
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color, #ff4d4d);
+    margin: 40px auto 0;
+    border-radius: 2px;
+}
+
+.story-section::before {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15rem;
+    color: rgba(255, 77, 77, 0.05);
+    font-family: serif;
+    line-height: 1;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .features-section {
+        margin-top: 50px;
+        padding: 50px 5%;
+    }
+
+    .banner-title-section h2 {
+        font-size: 2.2rem;
+    }
+}
