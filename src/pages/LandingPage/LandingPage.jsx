@@ -19,7 +19,7 @@ const LandingPage = () => {
     // Configure the sequence
     const canvasRef = useImageSequence({
         frameCount: 65,
-        imagePrefix: '/src/assets/transitions/_theme_correction_202602231441_and66_',
+        imagePrefix: '/transitions/_theme_correction_202602231441_and66_',
         imageSuffix: '.jpg',
         fps: 24,
         loop: false
