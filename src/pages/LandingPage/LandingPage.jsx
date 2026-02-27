@@ -61,21 +61,21 @@ const LandingPage = () => {
                 </div>
 
                 <div className="banners-grid">
-                    <div className="banner-item glass-hover">
+                    <div className="banner-item glass-hover" onClick={handleGoToMenu}>
                         <img src={banner4} alt="Banner 4" />
                         <div className="banner-content">
                             <h3>Seasonal Specials</h3>
                         </div>
                     </div>
 
-                    <div className="banner-item glass-hover">
+                    <div className="banner-item glass-hover" onClick={handleGoToMenu}>
                         <img src={banner2Real} alt="Banner 2" />
                         <div className="banner-content">
                             <h3>Chef's Choice</h3>
                         </div>
                     </div>
 
-                    <div className="banner-item glass-hover">
+                    <div className="banner-item glass-hover" onClick={handleGoToMenu}>
                         <img src={banner5Real} alt="Banner 5" />
                         <div className="banner-content">
                             <h3>Healthy Bites</h3>
